@@ -1,0 +1,99 @@
+<!--index.html-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    /> -->
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>修道問答錄 | 寶光紹興</title>
+    <script src="./mainWindow.js" defer></script>
+  </head>
+  <body>
+    <div class="floating-setting">
+      <div class="floating-setting__button" id="setting"></div>
+    </div>
+    <header>
+      <h3 class="bg-color1">修道問答錄 - 選題</h3>
+    </header>
+    <main>
+      <section class="disp bg-color2 grid">
+        <div class="container grid">
+          <div class="info grid" id="info">
+            <h1 class="num" id="num"></h1>
+            <div class="hline"></div>
+            <h1 class="presenter" id="presenter"></h1>
+          </div>
+          <h1 class="ques" id="ques"></h1>
+        </div>
+        <div class="ctrlBox">
+          <button id="prev"><</button>
+          <button id="next">></button>
+        </div>
+      </section>
+      <section class="candidate bg-color3 grid" id="candidate">
+        <div class="user" id="user"></div>
+      </section>
+      <section class="timer bg-color4 grid">
+        <div class="clock" id="clock">00:00</div>
+        <div class="ctrlBox">
+          <button id="action">開始</button>
+          <button id="reset">重設</button>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-color1">
+      <div class="copyright">
+        <h3>
+          Copyright &copy; 2022 &nbsp; | &nbsp; 一貫道寶光紹興 &nbsp; | &nbsp;
+          版權所有
+        </h3>
+      </div>
+    </footer>
+
+    <section class="settings" id="settings">
+      <div class="setChpt">
+        <label for="start">開始章節：</label>
+        <input
+          type="number"
+          name="start"
+          class="chapter"
+          id="start"
+          placeholder="1"
+          min="1"
+          max = "103"
+        />
+      </div>
+      <div class="setChpt">
+        <label for="start">結束章節：</label>
+        <input
+          type="number"
+          name="stop"
+          class="chapter"
+          id="stop"
+          placeholder="103"
+          min = '1'
+          max = '103'
+        />
+      </div>
+      <div class="setCandidate">
+        <label for="reserve">候選人數：</label>
+        <input type="number" name="reserve" id="reserve" placeholder="2" />
+      </div>
+      <div class="setUser">
+        <input type="text" name="username" id="username" />
+        <button class="button" id="add" default>加入</button>
+        <select name="userList" id="userList" multiple size="7"></select>
+        <button class="button" id="del">移除</button>
+      </div>
+    </section>
+  </body>
+</html>

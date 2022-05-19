@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap");
+/* ----- Custom properties ----- */
+/* ----- Reset ----- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+body,
+p,
+figure,
+picture {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 300;
+}
+
+/* ----- Set up the body ----- */
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  overflow: hidden;
+}
+
+header {
+  text-align: center;
+}
+
+header h3 {
+  padding: 0.2rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 60% 40%;
+}
+
+.disp {
+  padding: 1rem;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-template-rows: 1fr min-content;
+  justify-items: center;
+}
+
+.disp .container {
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 1fr min-content;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  gap: 1rem;
+}
+
+.disp .info {
+  background-color: white;
+  grid-template-rows: 1fr min-content 1fr;
+  justify-items: center;
+  padding: 0.2rem 1rem;
+  border-radius: 1.2rem;
+}
+
+.disp .num {
+  justify-self: center;
+  font-family: "Noto Serif TC", serif;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.disp .presenter {
+  align-self: center;
+  font-size: 1.8rem;
+}
+
+.disp .ques {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
+  margin-left: 1rem;
+  padding-right: 2rem;
+  width: 100%;
+}
+
+.candidate {
+  justify-items: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
+.user {
+  width: 80%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: auto 1fr;
+  gap: 3rem;
+  align-items: center;
+  color: #fff;
+}
+
+.username {
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.5rem;
+  align-self: center;
+}
+
+.user button {
+  justify-self: center;
+  align-self: center;
+  width: 5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+.timer {
+  padding: 1rem;
+  grid-template-rows: 1fr min-content;
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.clock {
+  background-color: #ffad8f;
+  padding: 0 2rem;
+  margin: 0;
+  font-size: 5rem;
+  border-radius: 1.2rem;
+}
+
+.ctrlBox {
+  display: flex;
+  justify-self: center;
+  gap: 1.5rem;
+}
+
+.ctrlBox button {
+  width: 4.5rem;
+  max-height: 2rem;
+  border-radius: 0.3rem;
+}
+
+.copyright {
+  font-size: 0.6rem;
+  text-align: center;
+  padding: 0.2rem;
+  font-weight: 900;
+}
+
+.hline {
+  border-top: 6px solid #000;
+  width: 80%;
+  justify-self: center;
+  margin-top: 5%;
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.floating-setting {
+  position: fixed;
+  bottom: 35px;
+  right: 10px;
+  cursor: pointer;
+}
+.floating-setting__button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-image: url("../gear-solid.svg");
+  background-size: 36px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.floating-setting__button:hover {
+  background-color: #ff875c;
+  box-shadow: 3px 3px 10px -1px #a92d00;
+}
+.floating-setting__button:active {
+  background-color: #ff875c;
+  transform: translateY(3px);
+}
+
+.settings {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  z-index: 998;
+  background-color: rgba(250, 250, 250, 0.9);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, min-content);
+  justify-items: center;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 24px;
+  padding: 7%;
+}
+
+.setChpt, .setCandidate {
+  width: 70%;
+}
+
+select {
+  width: 100%;
+}
+
+.setUser {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.8rem 1rem;
+}
+
+.setUser button {
+  height: min-content;
+  width: 6rem;
+  border-radius: 0.5rem;
+}
+
+/* ----- make form elements easier to work with ----- */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ----- remove animations who turned them off ----- */
+@media (prefers-redued-motion: reduce) {
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* ----- Utility classes ----- */
+/* general */
+.flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ----- color ----- */
+.bg-color1 {
+  background-color: yellowgreen;
+}
+
+.bg-color2 {
+  background-color: beige;
+}
+
+.bg-color3 {
+  background-color: #2A506F;
+}
+
+.bg-color4 {
+  background-color: #ff6229;
+}/*# sourceMappingURL=style.css.map */
